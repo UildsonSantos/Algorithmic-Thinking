@@ -77,3 +77,28 @@ def compute_in_degrees(digraph):
             in_degrees[in_node] +=1
 
     return in_degrees
+
+
+def in_degree_distribution(digraph):
+    '''
+    Input: 
+        A directed graph digraph (represented as a dictionary) 
+    Return:
+        Computes the unnormalized distribution of the in-degrees of the graph. 
+        The function return a dictionary whose keys correspond to in-degrees 
+        of nodes in the graph. The value associated with each particular in-degree is 
+        the number of nodes with that in-degree. In-degrees with no corresponding nodes 
+        in the graph are not included in the dictionary.
+    '''
+    
+    distribution = {}
+
+    in_degrees = compute_in_degrees(digraph)
+
+    for node in in_degrees.values(): 
+        distribution[node] = 0
+
+    for degree in in_degrees.values():
+        distribution[degree] += 1
+
+    return distribution
