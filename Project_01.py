@@ -55,3 +55,25 @@ def make_complete_graph(num_nodes):
                 complete_graph[node].add(to_the_other_node)
 
     return complete_graph
+
+
+def compute_in_degrees(digraph):
+    '''
+    Input: 
+        A directed graph digraph (represented as a dictionary) 
+    Return:
+        Computes the in-degrees for the nodes in the graph. 
+        The function should return a dictionary with the same set of keys (nodes) 
+        as digraph whose corresponding values are the number of edges whose head 
+        matches a particular node.
+    '''
+
+    in_degrees = {}
+    for node in digraph: 
+        in_degrees[node] = 0
+
+    for in_degree in digraph.values():
+        for in_node in in_degree:
+            in_degrees[in_node] +=1
+
+    return in_degrees
